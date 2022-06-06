@@ -35,7 +35,7 @@
 变量是抽象的, 仅有被 **代换 substitution** 才有实意.
 $[b/x]a$ 表示把 $a$ 中的变量 $x$ 代换成 $b$ .
 称 $a$ 为代换 **目标 target**, $x$ 为代换**对象 subject**.
-代换递归定义如下:
+代换归纳定义如下:
 1. $[b/x]y=\begin{cases}b&,\text{ if } x=y \\ y&,\text{ if } x\not=y\end{cases}$;
 2. $[b/x]o(a_1; ...; a_n)=o([b/x]a_1; ...; [b/x]a_n)$.
 
@@ -69,7 +69,7 @@ $\hat\rho(a)$ 表示把 $a$ 中的所有变量 $x_i$ 换成 $\rho(x_i)$ 的结�
 
 
 
-**ABT** 族的递归定义
+**ABT** 族的归纳定义
 1. 如果 $x\in\mathcal{X}_s$ , 则 $x\in\mathcal{B}[\mathcal{X}]_s$ ;
 2. 如果 $o$ 具有泛化元数 $(\vec{s}_1.s_1, ..., \vec{s}_n.s_n)s$, 且 $\forall 1\le i\le n$,
    $a_i\in\mathcal{B}[\mathcal{X, \vec{x}_i}]_{s_i}, \exists \rho_i:\vec{x}_i ↔ \vec{x}_i', s.t.\hat\rho_i(a_i)\in\mathcal{B}[\mathcal{X, \vec{x}_i}]_{s_i}$, 
