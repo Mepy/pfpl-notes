@@ -104,11 +104,11 @@ $K$ 称为 **结论 conclusion** 或说 **后件 consequnet**.
 定理3.1(**稳定性 stability**): 如果 $Γ⊢_{\mathcal{R}}J$ , 那么 $Γ⊢_{\mathcal{R}\cup\mathcal{R}'}J$.
 证明: $\forall r\in\mathcal{R}, r\in\mathcal{R}\cup\mathcal{R}'$.
 
-**自反性 reflexivity** : $Γ, J⊢_{\mathcal{R}}J$;
+**自反 reflexivity** : $Γ, J⊢_{\mathcal{R}}J$;
 证明: 定义显然.
-**减弱性 weakning** : 如果 $Γ⊢_{\mathcal{R}}J$ , 那么 $Γ, K⊢_{\mathcal{R}}J$ ;
+**减弱 weakning** : 如果 $Γ⊢_{\mathcal{R}}J$ , 那么 $Γ, K⊢_{\mathcal{R}}J$ ;
 证明: 定义显然.
-**传递性 transitivity** : 如果 $Γ, K⊢_{\mathcal{R}}J$ 且 $Γ⊢_{\mathcal{R}}K$, 那么 $Γ⊢_{\mathcal{R}}J$
+**传递 transitivity** : 如果 $Γ, K⊢_{\mathcal{R}}J$ 且 $Γ⊢_{\mathcal{R}}K$, 那么 $Γ⊢_{\mathcal{R}}J$
 证明: 对 $Γ, K⊢_{\mathcal{R}}J$ 归纳.
 
 #### **可纳性 admissibility**
@@ -121,37 +121,38 @@ $$
 \text{succ(zero) even}\not⊢_{(2.8)}\text{zero odd} \\
 $$
 
-**自反性 reflexivity** : $Γ, J⊢_{\mathcal{R}}J$;
-**减弱性 weakning** : 如果 $Γ⊢_{\mathcal{R}}J$ , 那么 $Γ, K⊢_{\mathcal{R}}J$ ;
-**传递性 transitivity** : 如果 $Γ, K⊢_{\mathcal{R}}J$ 且 $Γ⊢_{\mathcal{R}}K$, 那么 $Γ⊢_{\mathcal{R}}J$
+**自反 reflexivity** : $Γ, J⊨_{\mathcal{R}}J$;
+**减弱 weakning** : 如果 $Γ⊨_{\mathcal{R}}J$ , 那么 $Γ, K⊨_{\mathcal{R}}J$ ;
+**传递 transitivity** : 如果 $Γ, K⊨_{\mathcal{R}}J$ 且 $Γ⊨_{\mathcal{R}}K$, 那么 $Γ⊨_{\mathcal{R}}J$
 
 定理3.3(可纳即蕴含): $Γ⊨_{\mathcal{R}}J$ 相当于逻辑蕴含.
 
 **相对可纳**
-如果 $Γ⊢_{\mathcal{R}}J$ , 那么称 $\dfrac{Γ}{J}$ 相对 $\mathcal{R}$ 可纳.
+如果 $Γ⊨_{\mathcal{R}}J$ , 那么称 $\dfrac{Γ}{J}$ 相对 $\mathcal{R}$ 可纳.
 定理(相对可纳可消) 如果 $r$ 相对 $\mathcal{R}$ 可纳, 那么 $⊢_{\mathcal{R, r}}J$ 与 $⊢_{\mathcal{R}}J$ 等价.
 证明: 只需证一边, 记 $r=\dfrac{Γ}{J}$ , 由于 $r$ 相对 $\mathcal{R}$ 可纳,
-    将推导过程中使用 $r$ 的情形均换成 $Γ⊢_{\mathcal{R}}J$ 的推导过程即可.
+    将推导过程中使用 $r$ 的情形均换成 $Γ⊨_{\mathcal{R}}J$ 的推导过程即可.
 
 
 #### 假言归纳定义
-我们引入 **全局假设 global hypothesis** $\Delta$ 以占位.
+我们引入 **全局假设 global hypothesis** $Δ$ 以占位.
 假言规则形如 $\dfrac{ΔΓ_1⊢J_1...ΔΓ_n⊢J_n}{Δ⊢J}(3.9)$.
 
 实际上, 此处的 $⊢$ 是形式化或者说公理化的,
 **形式可推性判断 formal derivability judgement** 
-$Γ⊢J$ 由 $Γ$ 与 $J$ 组成, 且满足三条性质:
+$Δ⊢J$ 由 $Δ$ 与 $J$ 组成, 且满足三条性质:
 $$
-\tag{3.11a} \dfrac{}{Γ, J⊢J}
-$$
-$$
-\tag{3.11b} \dfrac{Γ⊢J}{Γ, K⊢J}
+\tag{3.11a} \dfrac{}{Δ, J⊢J}
 $$
 $$
-\tag{3.11c} \dfrac{Γ⊢K\ \ \  Γ, K⊢J}{Γ⊢J}
+\tag{3.11b} \dfrac{Δ⊢J}{Δ, K⊢J}
+$$
+$$
+\tag{3.11c} \dfrac{Δ⊢K\ \ \  Δ, K⊢J}{Δ⊢J}
 $$
 实际上定义的谓词是 $\mathcal{R}$ 的上述性质闭包.
 
+一般来说, 某些规则 $r\in\mathcal{R}$ 必须有特定全局假设 $Δ$ 才能使用.
 如果 $\forall Δ, \mathcal{R}$ 均可以使用, 那么称 $\mathcal{R}$ **一致 uniform**, 
 此时省略 $Δ$ , 记为 $\dfrac{Γ_1⊢J_1...Γ_n⊢J_n}{J}(3.10)$;
 并且结构规则 $(3.11b), (3.11c)$ 是可纳的, 因而可消去;
@@ -159,8 +160,53 @@ $$
 
 ### 泛型规则
 泛型规则对 **变量** 进行泛化.
-[TODO]
+
+$Γ⊢_{\mathcal{R}}^{\mathcal{U}; \mathcal{X}}J$ 表示 $J$ 根据 $\mathcal{R}\cupΓ$ 可推出, 且 $J$ 包含 $\mathcal{U}$ 与 $\mathcal{X}$ 上的 ABT.
+
+**泛型可推性 generic derivability** 
+如果 $Γ⊢_{\mathcal{R}}^{\mathcal{X}\mathcal{Y}}J$, 那么称 $\mathcal{Y}|Γ⊢_{\mathcal{R}}^{\mathcal{X}}J$, 其中 $\mathcal{X}\cap\mathcal{Y}=\varnothing$.
+
+**增强 peoliferation** : 如果 $\mathcal{Y}|Γ⊢_{\mathcal{R}}^{\mathcal{X}}J$ , 那么 $\mathcal{Y}, y|Γ⊢_{\mathcal{R}}^{\mathcal{X}}J$.
+**换名 renaming** 如果 $\mathcal{Y}, y|Γ⊢_{\mathcal{R}}^{\mathcal{X}}J$ , 那么 $\forall y'$ 相对于 $\mathcal{X}, \mathcal{Y}$ 而言新, 都有 $\mathcal{Y}, y'|[y→y']Γ⊢_{\mathcal{R}}^{\mathcal{X}}[y→y']J$
+**代换 substitution** 如果 $\mathcal{Y}, y|Γ⊢_{\mathcal{R}}^{\mathcal{X}}J$ 且 $a\in\mathcal{B}[\mathcal{X}\mathcal{Y}]$ , 那么 $\mathcal{Y}|[a/y]Γ⊢_{\mathcal{R}}^{\mathcal{X}}[y/a]J$ .
+
+同样引入 **全局变量集 global variables set** $\mathcal{Z}$.
+泛型规则形如 $\dfrac{\mathcal{Z}\mathcal{Y}_1|ΔΓ_1⊢J_1...\mathcal{Z}\mathcal{Y}_n|ΔΓ_n⊢J_n}{\mathcal{Z}|Δ⊢J}(3.12)$.
+
+**形式泛型可推性判断 formal generic derivability judgement**
+上述判断 $\mathcal{Y}|Δ⊢J$ 是形式化的, 应满足:
+$$
+\tag{3.14a} \dfrac{}{\mathcal{Y}|Δ, J⊢J}
+$$
+$$
+\tag{3.14b} \dfrac{\mathcal{Y}|Δ⊢J}{\mathcal{Y}|Δ, K⊢J}
+$$
+$$
+\tag{3.14c} \dfrac{\mathcal{Y}|Δ⊢J}{\mathcal{Y}, y|Δ⊢J}
+$$
+$$
+\tag{3.14d} \dfrac{\mathcal{Y}, y'|[y→y']Δ⊢[y→y']J}{\mathcal{Y}, y|Δ⊢J}
+$$
+$$
+\tag{3.14e} \dfrac{\mathcal{Y}|Δ⊢K\ \ \  \mathcal{Y}|Δ, K⊢J}{\mathcal{Y}|Δ⊢J}
+$$
+$$
+\tag{3.14f} \dfrac{\mathcal{Y}, y|Δ⊢J\ \ \  a\in\mathcal{B}[\mathcal{Y}]}{\mathcal{Y}|[a/y]Δ⊢[a/y]J}
+$$
+
+如果 $\forall\mathcal{Z}, \mathcal{R}$ 均适用, 那么称 $\mathcal{R}$ **一致 uniform**.
+我们同时假设对 $Δ$ 一致, 记为 $\dfrac{\mathcal{Y}_1|Γ_1⊢J_1...\mathcal{Y}_nΓ_n⊢J_n}{J}(3.13)$.
+$(3.14a)$ 类似于 $(3.11a)$ , 我们总假设满足.
+$(3.14b), (3.14c), (3,14e)$ 在泛型一致性的情况下可纳.
+$(3.14d)$ 是换名相关的规则, 由 **标识约定 identification convention** 确保.
+$(3.14f)$ 须在列出归纳定义后，用归纳法验证.
 
 ### 参化规则
 参化规则对 **符号** 进行泛化.
 我猜测 **变量** 与 **符号** 是对偶的.
+
+**参化可推性 parametric derivability** 
+如果 $Γ⊢_{\mathcal{R}}^{\mathcal{U}\mathcal{V}; \mathcal{X}\mathcal{Y}}J$, 那么称 $\mathcal{V}∥\mathcal{Y}|Γ⊢_{\mathcal{R}}^{\mathcal{U}; \mathcal{X}}J$,
+其中 $\mathcal{U}\cap\mathcal{V}=\varnothing, \mathcal{X}\cap\mathcal{Y}=\varnothing$.
+
+形式化系统, 相关规则, 一致性等是类似的, $\mathcal{V}∥\mathcal{Y}|Δ⊢J$, 懒写.
