@@ -7,7 +7,7 @@
 我写得非常随意, 不会解释太多, 
 需要深入理解内在逻辑者请自行阅读.
 
-我使用的 Markdown 方言是单个 ```\n``` 换行的那一支.
+我写 Markdown 惯常使用单个 ```'\n'``` 换行, 即软换行.
 请使用合适的渲染器浏览笔记, 本人对排版概不负责.
 pdf 版本将在笔记完成时释出.
 
@@ -16,3 +16,44 @@ pdf 版本将在笔记完成时释出.
 - 元语言 章1~3
   - [语法](./syntax.md) 章1
   - [规则](./rules.md) 章2~3
+
+- 语言E 章4-7
+  语言的语义一般可以分成静态语义与动态语义, 本节以语言 E 为例讲述.
+  - [语法](./E-syntax.md) 章4
+  - [动态语义](./E-dynamic-semantics.md) 章5, 7
+    语言的程序如何运行, 程序 **良表现 well-bahaved**.
+  - [静态语义](./E-static-semantics.md) 章4
+    语言的类型系统及相关性质, 程序 **良构成 well-formed**.
+  - [类型安全](./E-type-safety.md) 章6
+    **良构成 $⇒$ 良表现**.
+- 函数 章8~9, 20
+  以可计算性为依归, 
+  任意输入均有输出者称为 **全函数 Total Computable Function, TCF**,
+  否则称 **部分可计算函数 Partial Computable Function, PCF**.
+  - [语言EF](./EF.md) 章8
+    语言 E 中无函数抽象, 引入非递归函数.
+    注意, 非递归函数显然是全函数.
+  - [系统T](./T.md) 章9
+    可计算的递归函数与 Gödel 的不完备定理.
+  - [系统PCF](./PCF.md) 章19
+    部分可计算函数, 不确定性的魔法.
+  - [系统FPC](./FPC.md) 章20
+    递归类型.
+- 代数类型 章10~11, 14~15
+  - [积类型](./product-types.md) 章10
+  - [和类型](./sum-types.md) 章11
+  - [泛型](./generic-types.md) 章14
+    区别于 C++, TypeScript, C# 等一类语言中的 *泛型*, 后者详见 $λ$ 立方.
+  - [(余)归纳类型](./(co)inductive-types.md) 章15
+
+- $λ$ 立方 章16~18, 拓展
+  - [全称类型](./forall-types.md) 章16
+    系统 F , 多态类型
+  - [存在类型](./exists-types.md) 章17
+  - [种类](./kinds.md) 章18
+  - [依赖类型](./dependent-types.md) 拓展
+
+- Curry-Howard 对应 章12~13, 拓展
+  为了不出现循环论证, 我们必须回到全函数.
+  - [构造逻辑](./constructive-logic.md) 章12
+  - [经典逻辑](./classical-logic.md) 章13

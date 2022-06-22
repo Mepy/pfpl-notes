@@ -50,7 +50,7 @@ $$
 $$
 推导有两种方向
 - **前向 forward** / **自底向上 bottom-up**
-- **后向 backwardg** / **自顶向下 top-down**
+- **后向 backward** / **自顶向下 top-down**
 
 
 **迭代归纳定义 iterated inductive definition** 使用了以前定义的谓词
