@@ -9,7 +9,7 @@
 
 我写 Markdown 惯常使用单个 ```'\n'``` 换行, 即软换行.
 请使用合适的渲染器浏览笔记, 本人对排版概不负责.
-pdf 版本将在笔记完成时释出.
+现有 [html 版本](http://mepy.net/pfpl) 以供预览.
 
 如有疑问, 请提issue.
 ## 目录
@@ -21,12 +21,11 @@ pdf 版本将在笔记完成时释出.
   语言的语义一般可以分成静态语义与动态语义, 本节以语言 E 为例讲述.
   - [语法](./E-syntax.md) 章4
   - [动态语义](./E-dynamic-semantics.md) 章5, 7
-    语言的程序如何运行, 程序 **良表现 well-bahaved**.
-  - [静态语义](./E-static-semantics.md) 章4
-    语言的类型系统及相关性质, 程序 **良构成 well-formed**.
-  - [类型安全](./E-type-safety.md) 章6
-    **良构成 $⇒$ 良表现**.
-- 函数 章8~9, 20
+    语言的程序如何运行, 程序 **良定义 well-defined**.
+  - [静态语义](./E-static-semantics.md) 章4, 6
+    语言的类型系统及相关性质, 程序 **良赋型 well-tyed**.
+    类型安全 : **良赋型 $⟹$ 良定义**.
+- 函数 章8~9, 19~20
   以可计算性为依归, 
   任意输入均有输出者称为 **全函数 Total Computable Function, TCF**,
   否则称 **部分可计算函数 Partial Computable Function, PCF**.

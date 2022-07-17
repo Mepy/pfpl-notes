@@ -2,10 +2,10 @@
 
 |逻辑|规则|
 |:-:|:-:|
-|命题逻辑|[基本规则](###基本规则)|
-|命题逻辑|[假言规则](###假言规则)|
-|高阶逻辑|[泛型规则](###泛型规则)|
-|高阶逻辑|[参化规则](###参化规则)|
+|命题逻辑|[基本规则](#基本规则)|
+|命题逻辑|[假言规则](#假言规则)|
+|高阶逻辑|[泛型规则](#泛型规则)|
+|高阶逻辑|[参化规则](#参化规则)|
     
 
 ### 基本规则
@@ -29,7 +29,7 @@ $$
 \tag{2.2a, nat.O} \dfrac{}{\text{zero nat}}
 $$
 $$
-\tag{2.2b, nat.S} \dfrac{a\text{ nat}}{\text{succ}(a)\text{ nat}}
+\tag{2.2b, nat.S} \dfrac{a \text{ nat}}{\text{succ}(a)\text{ nat}}
 $$
 举例(自然数等价):
 $$
@@ -38,6 +38,33 @@ $$
 $$
 \tag{2.4b, is.nat.S} \dfrac{a\text{ is }b}{\text{succ}(a)\text{ is }\text{succ}(b)}
 $$
+
+归纳定义会导出归纳原理, 而 $\text{nat}$ 所导出的就是我们常用的数学归纳法:
+要证 $a \text{ nat }⟹P(a)$, 只要证:
+1. $P(\text{zero})$
+2. $P(a)⟹P(\text{succ}(a))$
+
+$\text{is}$ 导出的归纳原理如下:
+要证 $a\text{ is }b⟹P(a, b)$, 只要证:
+1. $P(\text{zero},\text{zero})$
+2. $P(a,b)⟹P(\text{succ}(a), \text{succ}(b))$
+
+我们把每个规则中的判断换成 $P$ 即可对应归纳原理中的一点.
+下面, 我们示例如何使用归纳原理证明命题.
+引理 (2.1) 如果 $\text{succ}(a) \text{ nat}$, 那么 $a \text{ nat}$.
+证明: 令 $P(a)=a \text{ nat}∧(∃b, a=\text{succ}(b)⟹b\text{ nat})$, 对 $a \text{ nat}$ 归纳:
+1. $P(\text{zero})$ 成立, $∧$ 左侧 $\text{zero nat}$ 由 2.2a 得出; 右侧的前件假, 因而真.
+2. 现假设 $P(a)$ 成立, 即 $a \text{ nat}∧(...)$,
+   由于证明中不需要用到 $P(a)$ 的 $∧$ 右侧, 我们用$(...)$来表示忘记它.
+   要证 $P(\text{succ}(a))$ 即 $\text{succ}(a)\text{ nat}∧(∃b, \text{succ}(a)=\text{succ}(b)⟹b\text{ nat})$,
+   $∧$ 左侧结合 $a \text{ nat}$ 与 2.2b 可得; 至于 $∧$ 右侧, 取 $b=a$, 又 $a \text{ nat}$, 故有 $b \text{ nat}$.
+
+引理 (2.2) 如果 $a \text{ nat}$, 那么 $a \text{ is } a$.
+证明: 令 $P(a) = a \text{ is } a$, 对 $a \text{ nat}$ 归纳即可.
+引理 (2.3) 如果 $\text{succ}(a_1) \text{ is } \text{succ}(a_2)$, 那么 $a_1 \text{ is } a_2$.
+证明: 归纳即可.
+
+
 
 **推导 derivation**
 **推导过程** $∇$ 通常以树状形式给出, 即形如
@@ -73,7 +100,7 @@ $$
 $$
 
 同样地, 我们有归纳法.
-此处省略, 
+此处省略.
 
 
 规则(关系)→函数 : 存在性+唯一性
