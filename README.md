@@ -25,25 +25,27 @@
   - [静态语义](./E-static-semantics.md) 章4, 6
     语言的类型系统及相关性质, 程序 **良赋型 well-tyed**.
     类型安全 : **良赋型 $⟹$ 良定义**.
-- 函数 章8~9, 19~20
+
+- [语言EF](./EF.md) 章8
+    语言 E 中无函数抽象, 引入非递归函数.
+    注意, 非递归函数显然是全函数.
+
+- 代数类型 章10~11, 14~15
+  - [积类型](./product-types.md) 章10
+  - [和类型](./sum-types.md) 章11
+  - [泛型](./generic-types.md) 章14
+  - [(余)归纳类型](./(co)inductive-types.md) 章15
+
+- 可计算性与递归论 章9, 19~20
   以可计算性为依归, 
   任意输入均有输出者称为 **全函数 Total Computable Function, TCF**,
   否则称 **部分可计算函数 Partial Computable Function, PCF**.
-  - [语言EF](./EF.md) 章8
-    语言 E 中无函数抽象, 引入非递归函数.
-    注意, 非递归函数显然是全函数.
   - [系统T](./T.md) 章9
     可计算的递归函数与 Gödel 的不完备定理.
   - [系统PCF](./PCF.md) 章19
     部分可计算函数, 不确定性的魔法.
   - [系统FPC](./FPC.md) 章20
     递归类型.
-- 代数类型 章10~11, 14~15
-  - [积类型](./product-types.md) 章10
-  - [和类型](./sum-types.md) 章11
-  - [泛型](./generic-types.md) 章14
-    区别于 C++, TypeScript, C# 等一类语言中的 *泛型*, 后者详见 $λ$ 立方.
-  - [(余)归纳类型](./(co)inductive-types.md) 章15
 
 - $λ$ 立方 章16~18, 拓展
   - [全称类型](./forall-types.md) 章16
